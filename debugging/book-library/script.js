@@ -16,9 +16,6 @@ function populateStorage() {
     );
     myLibrary.push(book1);
     myLibrary.push(book2);
-
-    console.log(myLibrary);
-    render();
   }
 }
 
@@ -36,14 +33,21 @@ function submit() {
     author.value == null ||
     author.value == "" ||
     pages.value == null ||
-    pages.value == ""
+    pages.value == "" ||
+    pages.value <= 0
   ) {
-    alert("Please fill all fields!");
+    alert("Please fill all fields correctly!");
     return false;
   } else {
     let book = new Book(title.value, author.value, pages.value, check.checked);
     myLibrary.push(book);
     render();
+
+    // resets form after input
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    check.checked = false;
   }
 }
 
@@ -70,9 +74,9 @@ function render() {
     let pagesCell = row.insertCell(2);
     let wasReadCell = row.insertCell(3);
     let deleteCell = row.insertCell(4);
-    titleCell.innerHTML = myLibrary[i].title;
-    authorCell.innerHTML = myLibrary[i].author;
-    pagesCell.innerHTML = myLibrary[i].pages;
+    titleCell.textContent = myLibrary[i].title;
+    authorCell.textContent = myLibrary[i].author;
+    pagesCell.textContent = myLibrary[i].pages;
 
     //add and wait for action for read/unread button
     let changeBut = document.createElement("button");
@@ -80,7 +84,7 @@ function render() {
     changeBut.className = "btn btn-success";
     wasReadCell.appendChild(changeBut);
     let readStatus = "";
-    if (myLibrary[i].check == true) {
+    if (myLibrary[i].read == true) {
       readStatus = "Yes";
     } else {
       readStatus = "No";
@@ -94,7 +98,6 @@ function render() {
 
     //add delete button to every row and render again
     let delButton = document.createElement("button");
-    delButton.id = i + 5;
     deleteCell.appendChild(delButton);
     delButton.className = "btn btn-warning";
     delButton.innerHTML = "Delete";
