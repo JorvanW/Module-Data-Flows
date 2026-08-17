@@ -31,7 +31,8 @@
     >
       Add new book
     </button>
-
+    <form id="bookForm"></form>
+      
     <div id="demo" class="collapse">
         <div class="form-group">
           <label for="title">Title:</label>
@@ -59,8 +60,6 @@
             id="pages"
             name="pages"
             required
-            min="1"
-            step="1"
           >
 
           <div class="form-check">
@@ -76,14 +75,15 @@
           </div>
 
           <button
-        type="button"
-        class="btn btn-primary"
-        id="submitButton"
->
+            type="button"
+            class="btn btn-primary"
+            onclick="submit();"
+          >
             Submit
           </button>
         </div>
     </div>
+    </form>
 
     <table class="table" id="display">
       <thead class="thead-dark">

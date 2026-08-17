@@ -24,6 +24,7 @@ const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const check = document.getElementById("check");
 const submitButton = document.getElementById("submitButton");
+const bookForm = document.getElementById("bookForm");
 
 submitButton.addEventListener("click", submit);
 
@@ -39,16 +40,14 @@ function submit() {
   ) {
     alert("Please fill all fields correctly!");
     return false;
-  } else {
+  }
+  {
     let book = new Book(title.value, author.value, pages.value, check.checked);
     myLibrary.push(book);
     render();
 
     // resets form after input
-    title.value = "";
-    author.value = "";
-    pages.value = "";
-    check.checked = false;
+    bookForm.reset();
   }
 }
 
