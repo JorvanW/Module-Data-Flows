@@ -36,7 +36,7 @@ function submit() {
     author.value === "" ||
     pages.value === "" ||
     pages.value <= 0 ||
-    !Number.isInteger(Number(pages.value))
+    !/^[1-9]\d*$/.test(pages.value)
   ) {
     alert("Please fill all fields correctly!");
     return false;
