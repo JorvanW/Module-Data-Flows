@@ -90,11 +90,16 @@ function render() {
     let delButton = document.createElement("button");
     deleteCell.appendChild(delButton);
     delButton.className = "btn btn-warning";
-    delButton.innerHTML = "Delete";
+    delButton.textContent = "Delete";
+
     delButton.addEventListener("click", function () {
-      alert(`You've deleted title: ${myLibrary[i].title}`);
+      let deletedTitle = myLibrary[i].title;
       myLibrary.splice(i, 1);
       render();
+
+      setTimeout(function () {
+        alert(`You've deleted title: ${deletedTitle}`);
+      }, 0);
     });
   }
 }
