@@ -23,6 +23,9 @@ const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const check = document.getElementById("check");
+const submitButton = document.getElementById("submitButton");
+
+submitButton.addEventListener("click", submit);
 
 //check the right input from forms and if its ok -> add the new book (object in array)
 //via Book function and start render function
