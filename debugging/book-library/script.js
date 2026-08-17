@@ -25,6 +25,7 @@ const pages = document.getElementById("pages");
 const check = document.getElementById("check");
 const submitButton = document.getElementById("submitButton");
 const bookForm = document.getElementById("bookForm");
+const bookTableBody = document.getElementById("bookTableBody");
 
 submitButton.addEventListener("click", submit);
 
@@ -62,9 +63,8 @@ function render() {
   let table = document.getElementById("display");
   let rowsNumber = table.rows.length;
   //delete old table
-  for (let n = rowsNumber - 1; n > 0; n--) {
-    table.deleteRow(n);
-  }
+  bookTableBody.innerHTML = "";
+
   //insert updated row and cells
   let length = myLibrary.length;
   for (let i = 0; i < length; i++) {
