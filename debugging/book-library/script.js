@@ -31,12 +31,9 @@ submitButton.addEventListener("click", submit);
 //via Book function and start render function
 function submit() {
   if (
-    title.value == null ||
-    title.value == "" ||
-    author.value == null ||
-    author.value == "" ||
-    pages.value == null ||
-    pages.value == "" ||
+    title.value === "" ||
+    author.value === "" ||
+    pages.value === "" ||
     pages.value <= 0 ||
     !Number.isInteger(Number(pages.value))
   ) {
