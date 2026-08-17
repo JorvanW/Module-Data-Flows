@@ -41,7 +41,8 @@ function submit() {
   ) {
     alert("Please fill all fields correctly!");
     return false;
-
+  }
+  {
     let book = new Book(title.value, author.value, pages.value, check.checked);
     myLibrary.push(book);
     render();
