@@ -34,7 +34,8 @@ function submit() {
     author.value == "" ||
     pages.value == null ||
     pages.value == "" ||
-    pages.value <= 0
+    pages.value <= 0 ||
+    !Number.isInteger(Number(pages.value))
   ) {
     alert("Please fill all fields correctly!");
     return false;
