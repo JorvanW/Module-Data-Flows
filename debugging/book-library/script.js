@@ -41,8 +41,7 @@ function submit() {
   ) {
     alert("Please fill all fields correctly!");
     return false;
-  }
-  {
+
     let book = new Book(title.value, author.value, pages.value, check.checked);
     myLibrary.push(book);
     render();
@@ -60,15 +59,13 @@ function Book(title, author, pages, check) {
 }
 
 function render() {
-  let table = document.getElementById("display");
-  let rowsNumber = table.rows.length;
   //delete old table
   bookTableBody.innerHTML = "";
 
   //insert updated row and cells
   let length = myLibrary.length;
   for (let i = 0; i < length; i++) {
-    let row = table.insertRow(1);
+    let row = bookTableBody.insertRow();
     let titleCell = row.insertCell(0);
     let authorCell = row.insertCell(1);
     let pagesCell = row.insertCell(2);
@@ -80,17 +77,9 @@ function render() {
 
     //add and wait for action for read/unread button
     let changeBut = document.createElement("button");
-    changeBut.id = i;
     changeBut.className = "btn btn-success";
     wasReadCell.appendChild(changeBut);
-    let readStatus = "";
-    if (myLibrary[i].check == true) {
-      readStatus = "Yes";
-    } else {
-      readStatus = "No";
-    }
-    changeBut.innerText = readStatus;
-
+    myLibrary[i].check ? "Yes" : "No";
     changeBut.addEventListener("click", function () {
       myLibrary[i].check = !myLibrary[i].check;
       render();
