@@ -43,7 +43,12 @@ function submit() {
     return false;
   }
   {
-    let book = new Book(title.value, author.value, pages.value, check.checked);
+    let book = new Book(
+      title.value.trim(),
+      author.value.trim(),
+      pages.value,
+      check.checked
+    );
     myLibrary.push(book);
     render();
 
