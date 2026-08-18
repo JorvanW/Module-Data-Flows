@@ -23,7 +23,7 @@ const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const check = document.getElementById("check");
-const submitButton = document.getElementById("submitButton");
+const submitButton = document.getElementById("submit-button");
 const bookForm = document.getElementById("bookForm");
 const bookTableBody = document.getElementById("bookTableBody");
 
